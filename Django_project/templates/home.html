@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_content%}
+Trang chủ
+{% endblock title_content%}
+
+{% block link_content%}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock link_content %}
+
+{% block banner%}
+    <div class="section_1" style="background-image: url('{% static 'image/background_img.png' %}');">
+        <div class="row row_banner">
+            <div class="col-sm-3">
+                <h1 class="title_banner">Time to discover</h1>
+                <p class="text_banner">text gi day</p>
+                <button class="btn_banner">Khám phá</button>
+                <div class="media_items_list">
+                    <a class="media_item" href=""><i class="fa-brands fa-square-facebook"></i></a>
+                    <a class="media_item" href=""><i class="fa-brands fa-square-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img src="{% static "image/img_02.png" %}" alt="img_banner" class="img_banner">
+            </div>
+            <div class="col-sm-3 col_right_banner">
+                <div class="info_banner">
+                    <h2>100%</h2>
+                    <h3>Nature grades</h3>
+                </div>
+                <div class="info_banner">
+                    <h2>100%</h2>
+                    <h3>Nature grades</h3>
+                </div>
+                <div class="info_banner">
+                    <h2>100%</h2>
+                    <h3>Nature grades</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock banner%}
+
+{% block home_content%}
+    
+    <!-- section 2 -->
+    <div class="section_2">
+        <div class="row">
+            <div class="col-sm-2 st2_item">
+                <i class="fa-solid fa-mug-hot"></i>
+                <h6>AWESOMAE AROMA</h6>
+            </div>
+            <div class="col-sm-2 st2_item">b</div>
+            <div class="col-sm-2 st2_item">c</div>
+            <div class="col-sm-2 st2_item">d</div>
+            <div class="col-sm-2 st2_item">e</div>
+            <div class="col-sm-2 st2_item">f</div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container section_3">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>title</h1>
+                <p>text</p>
+                <button class="cta"></button>
+            </div>
+            <div class="col-sm-6">
+                <img src="" alt="img_cta" class="img_cta">
+            </div>
+        </div>
+    </div>
+
+    <!-- Product -->
+    <div class="container section_4">
+        <div class="row row_title">
+            <div class="col-sm-6">
+                <h1>Our popular product</h1>
+            </div>
+            <div class="col-sm-6 col_btn_product">
+                <form action="{% url 'shop_app:shop' %}" method="GET">
+                    <button class="btn btn-outline-dark btn_product">Ghé thăm sản phẩm của chúng tôi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row_product_1">
+        {% for product in products|slice:":3" %}
+        <div class="col-sm-4 col_product">
+            <img src="{% static product.img_url %}" alt="img_product" class="img_product">
+            <h4>{{product.product_name}}</h4>
+            <div class="cost"></div>
+            <button class="btn btn-outline-dark">Add to cart</button>
+        </div>
+        {% endfor %} 
+    </div>
+
+    <div class="row row_product_2">
+        {% for product in products|slice:"3:6"%}
+            <div class="col-sm-4 col_product">
+                <img src="{% static product.img_url %}" alt="img_product" class="img_product">
+                <h4>{{product.product_name}}</h4>
+                <div class="cost"></div>
+                <button class="btn btn-outline-dark">Add to cart</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- nhan xet cua nguoi dung  -->
+
+    <!-- blogs  -->
+    <div class="container section_5">
+        <!-- icon  -->
+        <h1 class="h1_blog">Blogs</h1>
+        <div class="row row_blogs">
+            <div class="col col_blogs_item">
+                <a href=""><img src="{% static "image/Picture/cafe-vot-sai-gon-12-1024x1024.jpg" %}" alt="img_blogs" class="img_blogs"></a>
+                <a class="title_blogs" href=""><h5>4 QUÁN CAFE VỢT SÀI GÒN TỒN TẠI HƠN NỬA THẾ KỶ AI CŨNG NÊN GHÉ ĐẾN MỘT LẦN</h5></a>
+            </div>
+            <div class="col col_blogs_item">
+                <a href=""><img src="{% static "image/Picture/cafe-vot-sai-gon-9.jpg" %}" alt="img_blogs" class="img_blogs"></a>
+                <a class="title_blogs" href=""><h5>LỊCH SỬ HÌNH THÀNH VÀ PHÁT TRIỂN CỦA CÀ PHÊ: SỰ TÁC ĐỘNG TO LỚN CỦA CÀ PHÊ ĐỐI VỚI CÁC NƯỚC CHÂU ÂU</h5></a>
+            </div>
+            <div class="col col_blogs_item">
+                <a href=""><img src="{% static "image/Picture/cafe-vot-sai-gon-13.jpg" %}" alt="img_blogs" class="img_blogs"></a>
+                <a class="title_blogs" href=""><h5>LỊCH SỬ HÌNH THÀNH VÀ PHÁT TRIỂN CỦA CÀ PHÊ: SỰ TÁC ĐỘNG TO LỚN CỦA CÀ PHÊ ĐỐI VỚI CÁC NƯỚC CHÂU ÂU</h5></a>
+            </div>
+        </div>
+        <form action="{% url 'blog_app:blog' %}" method="GET">
+            <button class="btn btn-outline-dark btn_blogs">See all blogs</button>
+        </form>
+    </div>
+{% endblock home_content%}
