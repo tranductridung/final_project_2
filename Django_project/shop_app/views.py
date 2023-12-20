@@ -22,7 +22,7 @@ def get_products(request, component):
         products = Product.objects.all()
         
     products_data = [
-        {'product_name': product.product_name, 'img_url': product.img_url, 'price': product.price}
+        {'product_name': product.product_name, 'img_url': product.img_url, 'price': product.price, 'product_id': product.product_id, 'slug': product.slug}
         for product in products
     ]
 
