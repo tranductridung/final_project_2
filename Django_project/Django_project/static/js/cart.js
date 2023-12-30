@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lấy giá trị 'cartItems' từ localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Lấy phần tử HTML chứa thông tin sản phẩm
     var productHTML = '';
     var totalQuantity = 0;
     var totalPrice = 0;
+
     // Duyệt qua mỗi sản phẩm trong giỏ hàng và cập nhật thông tin vào phần HTML
     cartItems.forEach(item => {
         totalQuantity += item.quantity;
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
     });
+    
     $('.miditem_container').html(productHTML);
     const quantityDisplay = document.getElementById("quantityDisplay");
     quantityDisplay.textContent = totalQuantity 

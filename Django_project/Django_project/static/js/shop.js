@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // Thực hiện Ajax 
     $('.btn_category').click(function() {
         var component = $(this).data('component');
         $.ajax({
@@ -48,6 +49,7 @@ $(document).ready(function() {
     });
 });
 
+// Chuyển đổi URL thành dạng thích hợp
 function encodeURL(inputString) {
     return inputString.replace(/ /g, '%20');
 }

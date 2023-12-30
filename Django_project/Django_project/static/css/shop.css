@@ -57,6 +57,17 @@
     width: 100%;
 }
 
+.footer{
+    background-color: black;
+    height: 400px;
+}
+
+.link_footer{
+    text-decoration: none;
+    color: white;
+    margin: 50px 0;
+}
+
 .product_container{
     display: flex;
     flex-wrap: wrap;
